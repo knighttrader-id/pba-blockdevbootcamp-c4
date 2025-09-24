@@ -1,0 +1,249 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "memberAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "MemberAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "memberAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newName",
+						"type": "string"
+					}
+				],
+				"name": "MemberNameUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "memberAddress",
+						"type": "address"
+					}
+				],
+				"name": "MemberRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_memberAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "addMember",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_memberAddress",
+						"type": "address"
+					}
+				],
+				"name": "getMemberDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum MembershipSystem.MembershipStatus",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNextMemberId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_memberAddress",
+						"type": "address"
+					}
+				],
+				"name": "isMember",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_memberAddress",
+						"type": "address"
+					}
+				],
+				"name": "removeMember",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_memberAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "updateMemberName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addMember(address,string)": {
+					"details": "Adds a new member to the system.",
+					"params": {
+						"_memberAddress": "The wallet address of the new member.",
+						"_name": "The name of the new member. Why `external`? This function is designed to be called only from outside the contract (by users). `external` is more gas-efficient than `public` for this use case because it doesn't need to copy arguments to memory."
+					}
+				},
+				"getMemberDetails(address)": {
+					"details": "Retrieves the details of a specific member.",
+					"params": {
+						"_memberAddress": "The address of the member to look up. Why `external view`? Needed to allow external callers to read data from the `private` members mapping without gas cost."
+					}
+				},
+				"getNextMemberId()": {
+					"details": "Returns the next available member ID. Why `external view`? Allows anyone to see the current member count without gas cost. Necessary because `memberCounter` is now `internal`."
+				},
+				"isMember(address)": {
+					"details": "Checks if an address is registered as an active member. Why `external view`? This function only reads state, so `view` is appropriate and saves gas."
+				},
+				"removeMember(address)": {
+					"details": "Deactivates a member by setting their isActive flag to false. Why `external`? Again, this is an action initiated by an external user, making `external` the optimal choice."
+				},
+				"updateMemberName(address,string)": {
+					"details": "Updates the name of an existing member. Why `external`? Same reason as addMember: it's only called from outside and is more gas-efficient."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MembershipSystemUpgrade.sol": "MembershipSystem"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/MembershipSystemUpgrade.sol": {
+			"keccak256": "0x50b3266792d7443dfe7fee245bfcbe73535f4c690a0365b6aa0ea8cc7ae5a9b1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3d25b6c8c6655204c4c19b79b2e7d7e67591452ca82112911c031e18d7b1820e",
+				"dweb:/ipfs/QmcBGmoM2XFEaXG6VCynrUrgY5xhHeyeZWUsyUdTn55mUT"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,102 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "width",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "height",
+						"type": "uint256"
+					}
+				],
+				"name": "addBox",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "boxes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "width",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "height",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addBox(uint256,uint256,uint256)": {
+					"notice": "Add a new Box to the boxes array"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Exercise-2.sol": "Excercise2"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Exercise-2.sol": {
+			"keccak256": "0x33ca44ab07fa440718165e6ab1ca0b599483561acabe5f09cb02718d736cbabc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5240c2c07a083c0064ffb17fb1c8330fe875fc31bc6566823c764b2603af7e44",
+				"dweb:/ipfs/QmYXignehcsnyMx3UuaZrjzEMXDdEWoQ3aLLbXhDhA6Pgt"
+			]
+		}
+	},
+	"version": 1
+}
